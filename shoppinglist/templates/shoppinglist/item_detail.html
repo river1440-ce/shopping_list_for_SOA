@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Item: {{ item.title }}</h1>
+
+    <p>
+        <div><strong>Amount:</strong> {{ item.amount }}</div>
+        <div><strong>Summary:</strong> {{ item.summary }}</div>
+    </p>
+    <p>
+        <div><a href="{% url 'item-update' item.pk %}">Update Item</a></div>
+        <div><a href="{% url 'item-delete' item.pk %}">Delete Item</a></div>
+    </p>
+    
+{% endblock %}

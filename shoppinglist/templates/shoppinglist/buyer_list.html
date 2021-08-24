@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <br>
+    <h1>My shoping list</h1>
+
+    {% if item_list %}
+    <ul>
+
+      {% for item in item_list %}
+      <li class="">
+        <a href="{% url 'item-detail' item.pk %}">{{ item.title }}</a> ({{ item.amount }})
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no items for shopping.</p>
+    {% endif %}
+{% endblock %}

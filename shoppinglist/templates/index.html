@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Shopping List Home</h1>
+  <p>Welcome to Shopping List, a website developed by <em>Mozilla Developer Network</em>!</p>
+  <h2>Summary</h2>
+  <h3>Overall List</h3>
+  <p><strong>Items:</strong> {{ num_items }}</p>
+  <p>
+    <strong>Buyer List </strong>
+    <div>{{buyer_list}}</div>
+  </p>
+
+  <!--{% for buyer in buyer_list %}
+    <li>{{ buyer }}</li>-->
+  {% endfor %}
+  
+  <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
+{% endblock %}
