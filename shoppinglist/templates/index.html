@@ -6,14 +6,16 @@
   <h2>Summary</h2>
   <h3>Overall List</h3>
   <p><strong>Items:</strong> {{ num_items }}</p>
+  <!--
   <p>
     <strong>Buyer List </strong>
     <div>{{buyer_list}}</div>
   </p>
 
-  <!--{% for buyer in buyer_list %}
-    <li>{{ buyer }}</li>-->
+  {% for buyer in buyer_list %}
+    <li>{{ buyer }}</li>
   {% endfor %}
+  -->
   
   <p>You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.</p>
 {% endblock %}

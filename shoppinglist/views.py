@@ -1,4 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+# for user register
+# source: https://www.ordinarycoders.com/blog/article/django-user-register-login-logout
+from .forms import NewUserForm
+from django.contrib.auth import login
+from django.contrib import messages
+
+# for block the signup view from login user
+from django.contrib.auth import authenticate
 
 # Create your views here.
 from .models import Item
@@ -95,3 +104,22 @@ class ItemUpdate(UpdateView):
 class ItemDelete(DeleteView):
     model = Item
     success_url = reverse_lazy('my-shopping-list')
+
+# user register
+# source: https://www.ordinarycoders.com/blog/article/django-user-register-login-logout
+
+def register_request(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index') )
+
+    else:
+        if request.method == "POST":
+            form = NewUserForm(request.POST)
+            if form.is_valid():
+                user = form.save()
+                login(request, user)
+                messages.success(request, "Registration successful." )
+                return HttpResponseRedirect(reverse('index') )
+            messages.error(request, "Unsuccessful registration. Invalid information.")
+        form = NewUserForm()
+        return render (request=request, template_name="shoppinglist/register.html", context={"register_form":form})

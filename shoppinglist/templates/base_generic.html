@@ -36,6 +36,8 @@
             <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
         {% else %}
           <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+          <li><a href="{% url 'register'%}?next={{request.path}}">Sign Up</a></li>
+
         {% endif %} 
 
       {% endblock %}
@@ -61,5 +63,10 @@
       </div>
     </div>
   </div>
+
+  <footer>
+    <p>©Copyright 2050 by nobody. All rights reversed.</p>
+  </footer>
+  
 </body>
 </html>

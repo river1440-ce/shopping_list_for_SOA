@@ -14,3 +14,8 @@ urlpatterns += [
     path('item/<int:pk>/update/', views.ItemUpdate.as_view(), name='item-update'),
     path('item/<int:pk>/delete/', views.ItemDelete.as_view(), name='item-delete'),
 ]
+
+#for user register
+urlpatterns += [
+    path("register/", views.register_request, name="register"),
+]
