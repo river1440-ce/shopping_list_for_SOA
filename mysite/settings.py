@@ -30,7 +30,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
 ALLOWED_HOSTS = [
-
+    'mighty-river-29779.herokuapp.com',
 ]
 
 
